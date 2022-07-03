@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun Jul  3 16:24:22 2022
+# Make data base, printed on Sun Jul  3 16:28:41 2022
 
 # Variables
 
@@ -103,7 +103,7 @@ XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 3189
+GIO_LAUNCHED_DESKTOP_FILE_PID = 5385
 # automatic
 %F = $(notdir $%)
 # environment
@@ -151,7 +151,7 @@ SHLVL = 0
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-894bdcf1-59af-412f-8987-da06a43586a2.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-771192c3-9dc8-47f7-9d9e-937b91a36789.sock
 # default
 MAKE_VERSION := 4.2.1
 # environment
@@ -217,7 +217,7 @@ GJS_DEBUG_OUTPUT = stderr
 # environment
 LANG = C
 # environment
-VSCODE_PID = 3189
+VSCODE_PID = 5385
 # variable set hash-table stats:
 # Load=104/1024=10%, Rehash=0, Collisions=13/133=10%
 
@@ -227,9 +227,9 @@ VSCODE_PID = 3189
 
 # Directories
 
-# . (device 2053, inode 7343572): 10 files, no impossibilities.
+# . (device 2053, inode 7343572): 8 files, no impossibilities.
 
-# 10 files, no impossibilities in 1 directories.
+# 8 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -322,12 +322,12 @@ EscaleraEdicion.kt:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 18 / storage = 209 B / avg = 11 B
-# current buf: size = 8162 B / used = 209 B / count = 18 / avg = 11 B
+# strcache buffers: 1 (0) / strings = 16 / storage = 176 B / avg = 11 B
+# current buf: size = 8162 B / used = 176 B / count = 16 / avg = 11 B
 
-# strcache performance: lookups = 31 / hit rate = 41%
+# strcache performance: lookups = 29 / hit rate = 44%
 # hash-table stats:
-# Load=18/8192=0%, Rehash=0, Collisions=4/31=13%
-# Finished Make data base on Sun Jul  3 16:24:22 2022
+# Load=16/8192=0%, Rehash=0, Collisions=1/29=3%
+# Finished Make data base on Sun Jul  3 16:28:41 2022
 
  
