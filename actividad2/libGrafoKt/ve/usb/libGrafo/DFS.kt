@@ -9,23 +9,16 @@ public class DFS(val g: Grafo) {
     private var escalera: MutableList<Int> = mutableListOf()
     private var n = g.obtenerNumeroDeVertices()
     private var visitado = Array(n) { false }
-    private var visitadoRecursividad: Array<Boolean>
 
     /**
      * Implementacion de algoritmo DFS Precondicion: g es un grafo Postcondicion: Se recorrieron
      * todos los vertices del grafo. Tiempo de complejidad: O(|V|+|E|).
      */
     init {
-        visitadoRecursividad = Array(g.obtenerNumeroDeVertices()) { false }
-
         for (i in 0 until n) {
-            /* Solo se ejecuta dfsVisit si no se ha visitado el vertice y 
-             */
-
+            // Se evita entrar a vertices que no son capaces de formar una escalera mas larga que la que esta actualmente almacenada 
             if (!visitado[i] && n - i > escaleraMasLarga.size) {
                 dfsVisit(g, i)
-                println("Visitados Recursion del $i: " + visitadoRecursividad.toList())
-                visitadoRecursividad = Array(g.obtenerNumeroDeVertices()) { false }
             }
         }
     }
@@ -39,12 +32,10 @@ public class DFS(val g: Grafo) {
 
         // Se anade el vertice a la escalera temporal 
         escalera.add(u)
+        // Se marca como visitado
         visitado[u] = true
 
-        println(escalera)
-
         for (ady in g.adyacentes(u)) {
-            println("Posible tamano de cadena a formar desde ${ady.b}:   ${n-ady.b + escalera.size} ")
             // Se evita entrar a vertices que no son capaces de formar una cadena mas larga que la que esta actualmente almacenada 
             if (n - ady.b + escalera.size > escaleraMasLarga.size) {
                 dfsVisit(g, ady.b)
@@ -54,9 +45,9 @@ public class DFS(val g: Grafo) {
         // Si la escalera temporal tiene mayor tamano, entonces es la mas larga
         if (escalera.size > escaleraMasLarga.size) {
             escaleraMasLarga = escalera.toMutableList()
-            println("MAS LARGA: ")
         }
-        println("Eliminando: " + escalera.removeLast())
+        // Se vacia eliminando el ultimo elemento anadido a la escalera
+        escalera.removeLast()
     }
 
     fun caminoMasLargo(): Iterable<Int> {
