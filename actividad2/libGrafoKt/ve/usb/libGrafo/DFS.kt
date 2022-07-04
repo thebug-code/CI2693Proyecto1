@@ -1,23 +1,32 @@
 package ve.usb.libGrafo
 
 /**
- * Implementación del algoritmo DFS. Con la creación de la instancia, se ejecuta el algoritmo DFS
+ * Modificacion del algoritmo DFS. Con la creación de la instancia, se ejecuta el algoritmo DFS
  * desde todos los vértices del grafo
  */
 public class DFS(val g: Grafo) {
-    private var escaleraMasLarga: MutableList<Int> = mutableListOf()
-    private var escalera: MutableList<Int> = mutableListOf()
+    // Almacenara la ca
+    private var caminoMasLargo: MutableList<Int> = mutableListOf()
+    private var caminoTemporal: MutableList<Int> = mutableListOf()
     private var n = g.obtenerNumeroDeVertices()
     private var visitado = Array(n) { false }
 
     /**
-     * Implementacion de algoritmo DFS Precondicion: g es un grafo Postcondicion: Se recorrieron
-     * todos los vertices del grafo. Tiempo de complejidad: O(|V|+|E|).
+     * Implementacion de algoritmo DFS modificado para conseguir el camino con mas lados en un DAG
+     * cuyos vertices [0, 1, ..., n-1] mantienen un orden topologico
+     * Precondicion: [g] es un DAG. Los vertices de [g] tienen un orden topologico
+     * Postcondicion: Se recorrieron todos los vertices del grafo 
+     * y se consiguio el camino con mayor cantidad de lados
+     * Tiempo de complejidad: O(|V|+|E|).
      */
     init {
         for (i in 0 until n) {
-            // Se evita entrar a vertices que no son capaces de formar una escalera mas larga que la que esta actualmente almacenada 
-            if (!visitado[i] && n - i > escaleraMasLarga.size) {
+
+            // Tamano maximo del camino que se puede formar desde i (Por ser un orden topologico)
+            var tamMax = n - i
+
+            // Para optimizar la ejecucion, solo se entra a los vertices capaces de formar un camino mas largo que el actual
+            if (!visitado[i] && tamMax > caminoMasLargo.size) {
                 dfsVisit(g, i)
             }
         }
@@ -30,27 +39,39 @@ public class DFS(val g: Grafo) {
      */
     private fun dfsVisit(g: Grafo, u: Int) {
 
-        // Se anade el vertice a la escalera temporal 
-        escalera.add(u)
-        // Se marca como visitado
+        // Se anade el vertice a la camino temporal 
+        caminoTemporal.add(u)
+
+        // Se marca como visitado para evitar entrar a vertices repetidamente
         visitado[u] = true
 
         for (ady in g.adyacentes(u)) {
-            // Se evita entrar a vertices que no son capaces de formar una cadena mas larga que la que esta actualmente almacenada 
-            if (n - ady.b + escalera.size > escaleraMasLarga.size) {
+
+            // Tamano del camino temporal + el tamano maximo que se puede formar desde el vertice [ady.b]
+            var tamcaminoTemporalMax = caminoTemporal.size + (n - ady.b)
+
+            // Solo se entra a los vertices que pueden formar una camino mas largo que el actual 
+            if (tamcaminoTemporalMax > caminoMasLargo.size) {
                 dfsVisit(g, ady.b)
             }
         }
 
-        // Si la escalera temporal tiene mayor tamano, entonces es la mas larga
-        if (escalera.size > escaleraMasLarga.size) {
-            escaleraMasLarga = escalera.toMutableList()
+        // Si la camino temporal tiene mayor tamano, entonces es el mas largo
+        if (caminoTemporal.size > caminoMasLargo.size) {
+            caminoMasLargo = caminoTemporal.toMutableList()
         }
-        // Se vacia eliminando el ultimo elemento anadido a la escalera
-        escalera.removeLast()
+
+        // Se vacia eliminando el ultimo elemento anadido a la caminoTemporal
+        caminoTemporal.removeLast()
     }
 
-    fun caminoMasLargo(): Iterable<Int> {
-        return escaleraMasLarga
+
+    /**
+     * Retorna el camino mas largo del DAG
+     * Postcondicion: [caminoMasLargo] es el camino con mayor cantidad de lados
+     * Tiempo de ejecucion: O(1)
+     */
+    fun obtenerCaminoMasLargo(): List<Int> {
+        return caminoMasLargo
     }
 }

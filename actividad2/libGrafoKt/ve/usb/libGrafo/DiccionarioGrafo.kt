@@ -3,12 +3,24 @@ package ve.usb.libGrafo
 import java.io.File
 import kotlin.math.min
 
+
+/**
+ * Estructura que carga un diccionario ubicado en [filePath] y crea un grafo asociado [g].
+ * Cada lado (a,b) de [g], representa que de la palabra [a] a la palabra [b] solo hay un paso de edicion
+ */
 public class DiccionarioGrafo(val filePath: String) {
 
     private var verticeToString: HashMap<Int, String>
     private var stringToVertice: HashMap<String, Int>
     private var g: GrafoDirigido
 
+    /**
+     * Cargar el diccionario [filePath] en memoria.
+     * Si no se logra abrir, se lanza un Runtime Exception.
+     * Se crean dos diccionarios para mapear los vertices-string.
+     * Se crea el grafo asociado
+     * [g] es un DAG
+     */
     init {
         val file = File(filePath)
         if (!file.exists()) {
@@ -17,11 +29,13 @@ public class DiccionarioGrafo(val filePath: String) {
 
         val lines: List<String> = file.readLines()
         var n = lines.size
+        var contador = 0
+
         verticeToString = HashMap(n)
         stringToVertice = HashMap(n)
         g = GrafoDirigido(n)
-        var contador = 0
 
+        // Cargar al HasMap
         for (palabra in lines) {
             if (stringToVertice[palabra] == null) {
                 stringToVertice[palabra] = contador
@@ -29,6 +43,7 @@ public class DiccionarioGrafo(val filePath: String) {
             }
         }
 
+        // Agregar lados al grafo
         for (i in 0 until n - 1) {
             for (j in i + 1 until n) {
                 if (distanciaDeEdicion(lines[i], lines[j]) == 1) {
@@ -36,8 +51,6 @@ public class DiccionarioGrafo(val filePath: String) {
                 }
             }
         }
-
-        println(verticeToString)
     }
 
     /**
@@ -80,7 +93,11 @@ public class DiccionarioGrafo(val filePath: String) {
      */
     fun obtenerGrafoDirigido(): GrafoDirigido = this.g
 
-    /* Distancia de edicion (Levenshtein Distance) */
+    /**
+     * Distancia de edicion ente dos palabras (Levenshtein Distance) 
+     * [X] y [Y] son strings que van a ser comparados.
+     * Se retorna la distancia de edicion de transformar [X] en [Y]
+    */
     fun distanciaDeEdicion(X: String, Y: String): Int {
         val m = X.length
         val n = Y.length
