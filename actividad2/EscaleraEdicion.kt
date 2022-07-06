@@ -9,13 +9,29 @@ import kotlin.system.exitProcess
  * Al tener este grafo creado, el problema se reduce a encontrar el camino simple mas largo
  * del grafo
  * 
- * Para obtener el camino mas largo, se ejecuta un
- * El primer detalle del q, es que por mantener el orden lexicografico, el grafo
- * es un DAG, y por como se mapean los String a los verticesuyos vertices mantienen un orden topologico
+ * Para obtener el camino mas largo, se ejecuta una version modificada de DFS. A medida que se
+ * ejecuta, se va almacenando el camino recorrido.
+ * 
+ * Un detalle que permite optimizar la ejecucion, es el hecho de que los vertices mantienenen
+ * un orden topologico, solo se entra con dfsVisit a los vertices que son capaces de formar un 
+ * camino mas largo al que esta almacenado actualmente.
+ * 
+ * Se implemento la siguiente estructura:
+ * 
+ * DiccionarioGrafo:
+ *      Parametro de la clase: filePath. Es el nombre del archivo donde esta almacenado el diccionario.
+ *      Esta estructura crea un grafo dirigido, asociado al diccionario. Permite un mapeo de vertices a String
+ *      y de String a vertices.
  * 
  */
 fun main(args: Array<String>) {
 
+
+    if (args.size != 1) {
+        println("Error en la cantidad de argumentos")
+        println("Usage: ./runEscaleraEdicion.sh <archivoEntrada>")
+        exitProcess(1)
+    }
 
     // Cargar diccionario
     var diccToGrafo = DiccionarioGrafo(args[0])

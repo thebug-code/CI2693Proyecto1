@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun Jul  3 16:28:41 2022
+# Make data base, printed on Tue Jul  5 20:12:46 2022
 
 # Variables
 
@@ -47,11 +47,9 @@ SHELL = /bin/sh
 # environment
 VSCODE_NLS_CONFIG = {"locale":"es-419","availableLanguages":{},"_languagePackSupport":true}
 # environment
-_ = /usr/share/code/code
+JOURNAL_STREAM = 8:51202
 # makefile (from 'Makefile', line 3)
 LIBGRAPH = libGrafoKt/
-# environment
-JOURNAL_STREAM = 8:49536
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # makefile (from 'Makefile', line 1)
@@ -67,9 +65,11 @@ MANDATORY_PATH = /usr/share/gconf/ubuntu.mandatory.path
 # environment
 XDG_DATA_DIRS = /usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
 # environment
-DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus,guid=7840617e344fc211dc61588c62c1fad2
 # environment
 VSCODE_VERBOSE_LOGGING = true
+# environment
+_ = /usr/share/code/code
 # environment
 MANAGERPID = 1581
 # environment
@@ -93,7 +93,7 @@ VSCODE_LOG_STACK = false
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = 2aa228fa1f7a4f7986f04719c85d5fd1
+INVOCATION_ID = 0e7fa398b00f4068a65f78df6f7156d7
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -103,7 +103,7 @@ XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 5385
+GIO_LAUNCHED_DESKTOP_FILE_PID = 44303
 # automatic
 %F = $(notdir $%)
 # environment
@@ -151,7 +151,7 @@ SHLVL = 0
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-771192c3-9dc8-47f7-9d9e-937b91a36789.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-f741bff3-d2ed-4bbf-b65a-89d9f30f04da.sock
 # default
 MAKE_VERSION := 4.2.1
 # environment
@@ -199,7 +199,7 @@ MAKEFILES :=
 # environment
 LC_ALL = C
 # environment
-GJS_DEBUG_TOPICS = JS ERROR;JS LOG
+DBUS_STARTER_BUS_TYPE = session
 # automatic
 ^F = $(notdir $^)
 # default
@@ -210,14 +210,14 @@ CHROME_DESKTOP = code-url-handler.desktop
 WINDOWPATH = 2
 # default
 .INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
-# environment
-GJS_DEBUG_OUTPUT = stderr
 # default
 .RECIPEPREFIX := 
 # environment
 LANG = C
 # environment
-VSCODE_PID = 5385
+VSCODE_PID = 44303
+# environment
+DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=7840617e344fc211dc61588c62c1fad2
 # variable set hash-table stats:
 # Load=104/1024=10%, Rehash=0, Collisions=13/133=10%
 
@@ -227,9 +227,9 @@ VSCODE_PID = 5385
 
 # Directories
 
-# . (device 2053, inode 7343572): 8 files, no impossibilities.
+# . (device 2053, inode 7343572): 10 files, no impossibilities.
 
-# 8 files, no impossibilities in 1 directories.
+# 10 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -322,12 +322,12 @@ EscaleraEdicion.kt:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 16 / storage = 176 B / avg = 11 B
-# current buf: size = 8162 B / used = 176 B / count = 16 / avg = 11 B
+# strcache buffers: 1 (0) / strings = 18 / storage = 209 B / avg = 11 B
+# current buf: size = 8162 B / used = 209 B / count = 18 / avg = 11 B
 
-# strcache performance: lookups = 29 / hit rate = 44%
+# strcache performance: lookups = 31 / hit rate = 41%
 # hash-table stats:
-# Load=16/8192=0%, Rehash=0, Collisions=1/29=3%
-# Finished Make data base on Sun Jul  3 16:28:41 2022
+# Load=18/8192=0%, Rehash=0, Collisions=4/31=13%
+# Finished Make data base on Tue Jul  5 20:12:46 2022
 
  
