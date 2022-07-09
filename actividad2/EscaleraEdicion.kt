@@ -25,7 +25,7 @@ import ve.usb.libGrafo.*
  * 
  */
 
-/**
+    /**
  * Muestra en pantalla el mensaje [mensaje] que indica que a ocurrido un error en la ejecución del
  * programa y terminar la ejecución del mismo.
  */
