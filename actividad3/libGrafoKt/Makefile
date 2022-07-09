@@ -11,8 +11,6 @@ libGrafoKt.jar: $(GLIB)/Color.class\
 		$(GLIB)/GrafoDirigido.class\
         $(GLIB)/VerticeTp.class\
 		$(GLIB)/VerticeDFS.class\
-		$(GLIB)/VerticeBFS.class\
-		$(GLIB)/BFS.class\
 		$(GLIB)/DFS.class\
         $(GLIB)/OrdenamientoTopologico.class\
         $(GLIB)/CicloDigrafo.class\
@@ -37,9 +35,6 @@ $(GLIB)/Grafo.class: $(GLIB)/Grafo.kt
 $(GLIB)/GrafoDirigido.class: $(GLIB)/GrafoDirigido.kt
 	$(KC) $(KFLAG) $(GLIB): $(GLIB)/GrafoDirigido.kt
 
-$(GLIB)/BFS.class: $(GLIB)/BFS.kt
-	$(KC) $(KFLAG) $(GLIB): $(GLIB)/BFS.kt
-
 $(GLIB)/DFS.class: $(GLIB)/DFS.kt
 	$(KC) $(KFLAG) $(GLIB): $(GLIB)/DFS.kt
 
@@ -51,9 +46,6 @@ $(GLIB)/OrdenamientoTopologico.class: $(GLIB)/OrdenamientoTopologico.kt
 
 $(GLIB)/VerticeDFS.class: $(GLIB)/VerticeDFS.kt
 	$(KC) $(KFLAG) $(GLIB): $(GLIB)/VerticeDFS.kt
-
-$(GLIB)/VerticeBFS.class: $(GLIB)/VerticeBFS.kt
-	$(KC) $(KFLAG) $(GLIB): $(GLIB)/VerticeBFS.kt
 
 $(GLIB)/CicloDigrafo.class: $(GLIB)/CicloDigrafo.kt
 	$(KC) $(KFLAG) $(GLIB): $(GLIB)/CicloDigrafo.kt
