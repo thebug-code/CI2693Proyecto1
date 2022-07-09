@@ -30,7 +30,7 @@ import kotlin.system.exitProcess
  * número entero, porque es imposible que en el camino más corto haya un número impar
  * de lados que conecten a los vértices del mismo tipo.
 
- * Por último, las estructuras de apoyo usadas para la solución de la actividad fueron:
+ * Por último, las estructuras de apoyo usadas para la solución de la actividad son:
  *
  * - Clase VerticeBFS con paŕametros:
  *   • v que representa el valor del vértice.
