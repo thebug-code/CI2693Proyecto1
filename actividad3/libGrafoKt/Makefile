@@ -18,8 +18,6 @@ libGrafoKt.jar: $(GLIB)/Color.class\
         $(GLIB)/CicloDigrafo.class\
         $(GLIB)/Utilidades.class\
         $(GLIB)/CFC.class\
-        $(GLIB)/VerticeDFSCC.class\
-        $(GLIB)/ComponentesConexasDFS.class\
         $(GLIB)/GrafoDeImplicacion.class
 
 	jar -cvf $@ $(GLIB)/*.class 
@@ -65,12 +63,6 @@ $(GLIB)/Utilidades.class: $(GLIB)/Utilidades.kt
 
 $(GLIB)/CFC.class: $(GLIB)/CFC.kt
 	$(KC) $(KFLAG) $(GLIB): $(GLIB)/CFC.kt
-
-$(GLIB)/ComponentesConexasDFS.class: $(GLIB)/ComponentesConexasDFS.kt
-	$(KC) $(KFLAG) $(GLIB): $(GLIB)/ComponentesConexasDFS.kt
-
-$(GLIB)/VerticeDFSCC.class: $(GLIB)/VerticeDFSCC.kt
-	$(KC) $(KFLAG) $(GLIB): $(GLIB)/VerticeDFSCC.kt
 
 $(GLIB)/GrafoDeImplicacion.class: $(GLIB)/GrafoDeImplicacion.kt
 	$(KC) $(KFLAG) $(GLIB): $(GLIB)/GrafoDeImplicacion.kt
