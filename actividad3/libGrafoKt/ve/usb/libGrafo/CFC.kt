@@ -93,7 +93,7 @@ public class CFC(val g: GrafoDirigido) {
      * CFCs corresponde al que se indica en el metodo obtenerIdentificadorCFC().
      * Tiempo de la operación: O(|numeroDeCFC|).
     */
-    fun  obtenerCFC() : Iterable<MutableSet<Int>> {
+    fun obtenerCFC() : Iterable<MutableSet<Int>> {
         var r = LinkedList<MutableSet<Int>>()  	
 
         for (i in 0 until this.numeroDeCFC()) r.add(this.c[i])
@@ -111,7 +111,7 @@ public class CFC(val g: GrafoDirigido) {
         this.vVisitados = Array(g.obtenerNumeroDeVertices()) { false }        	
         var sccDag : GrafoDirigido = GrafoDirigido(this.nCFC)
         
-        for (i in 0 until this.numeroDeCFC()) {
+        for (i in 0 until g.obtenerNumeroDeVertices()) {
             if (!this.vVisitados[i]) this.dfsCondensarCFC(i, sccDag)
         }
 
