@@ -55,14 +55,16 @@ public class DiccionarioGrafo(val filePath: String) {
 
     /**
      * Indica si el índice si el indice [v] de un vértice pertenece al digrafo. En caso afirmativo
-     * retorna true, de lo contrario false. Tiempo de la operación: O(1).
+     * retorna true, de lo contrario false. 
+     * Tiempo de la operación: O(1).
      */
     fun contieneVertice(v: Int): Boolean = v >= 0 && v < g.obtenerNumeroDeVertices()
 
     /**
      * Retorna el índice asociado al vertice de nombre [nombre]. Si no existe ningun vértice
-     * asociado con ese nombre se lanza un RuntimeException. Precondición: nombre tiene un vértice
-     * asociado. Tiempo de la operación: O(1).
+     * asociado con ese nombre se lanza un RuntimeException.
+     * Precondición: nombre tiene un vértice asociado.
+     * Tiempo de la operación: O(1).
      */
     fun indiceVertice(nombre: String): Int {
         // Verificar si el nombre tiene un vertice asociado
@@ -75,8 +77,9 @@ public class DiccionarioGrafo(val filePath: String) {
 
     /**
      * Retorna el nombre asociado del vertice con índice [v]. Si [v] no corresponde a un índice
-     * asociado con un vertice del digrafo entonces se lanza un RuntimeException. Precondición: [v]
-     * corresponde a un indice con un vértice del grafo asociado. Tiempo de la operación: O(1).
+     * asociado con un vertice del digrafo entonces se lanza un RuntimeException. 
+     * Precondición: [v] corresponde a un indice con un vértice del grafo asociado. 
+     * Tiempo de la operación: O(1).
      */
     fun nombreVertice(v: Int): String {
         // Verificar si el indice dado tiene un nombre asociado
@@ -89,7 +92,8 @@ public class DiccionarioGrafo(val filePath: String) {
 
     /**
      * Retorna el digrafo asociado al grafo con vértices con nombre, indicado en el archivo de
-     * entrada. Tiempo de la operación: O(1).
+     * entrada. 
+     * Tiempo de la operación: O(1).
      */
     fun obtenerGrafoDirigido(): GrafoDirigido = this.g
 

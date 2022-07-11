@@ -5,7 +5,7 @@ package ve.usb.libGrafo
  * desde todos los vértices del grafo
  */
 public class DFS(val g: Grafo) {
-    // Almacenara la ca
+    // Almacenara el camino mas largo
     private var caminoMasLargo: MutableList<Int> = mutableListOf()
     private var caminoTemporal: MutableList<Int> = mutableListOf()
     private var n = g.obtenerNumeroDeVertices()
@@ -33,9 +33,10 @@ public class DFS(val g: Grafo) {
     }
 
     /**
-     * Implementación de algoritmo dfsVisit(g). Precondicion: [g] es un grafo, [u] un vertice desde
-     * donde se comienza a recorrer. Postcondicion: Se recorrieron todos los vertices alcanzables
-     * desde [u] en el grafo. Tiempo de complejidad: O(|E|).
+     * Implementación de algoritmo dfsVisit(g).
+     * Precondicion: [g] es un grafo, [u] pertenece al grafo.
+     * Postcondicion: Se recorrieron todos los vertices alcanzables desde [u] en el grafo.
+     * Tiempo de complejidad: O(|E|).
      */
     private fun dfsVisit(g: Grafo, u: Int) {
 
@@ -65,9 +66,9 @@ public class DFS(val g: Grafo) {
         caminoTemporal.removeLast()
     }
 
-
     /**
      * Retorna el camino mas largo del DAG
+     * Precondicion: True
      * Postcondicion: [caminoMasLargo] es el camino con mayor cantidad de lados
      * Tiempo de ejecucion: O(1)
      */
