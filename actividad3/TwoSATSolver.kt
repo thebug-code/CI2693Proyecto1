@@ -14,7 +14,7 @@ import kotlin.system.exitProcess
  * En detalle, para la construcción del grafo se tiene que:
  *      - Se procesa el archivo de entrada, de modo que por cada clásula de la expresión 
  *      se crea un estructura Pair de enteros que posteriomente se agrega a una LinkedList.
- *      Para el mapeo del literal xi de la enesima cláusula contenida en el archivo a un 
+ *      Para el mapeo del literal xi de la enésima cláusula contenida en el archivo a un 
  *      entero, se implemento una función que dado el literal suma o resta uno a xi.toInt().
  *      Es decir, si xi.toInt() es mayor o igual que cero se suma 1. Si no se resta 1. 
  *      Y si x == "-0" se retorna -1.
