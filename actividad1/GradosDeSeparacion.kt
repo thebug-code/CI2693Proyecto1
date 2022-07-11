@@ -32,7 +32,7 @@ import kotlin.system.exitProcess
 
  * Por último, las estructuras de apoyo usadas para la solución de la actividad son:
  *
- * - Clase VerticeBFS con paŕametros:
+ * - Clase VerticeBFS con parámetros:
  *   • v representa el valor del vértice.
  *   • d distancia desde el enésimo vértice al vértice de inicio.
  *   • Color color de enésimo vértice (GRIS, BLANCO, NEGRO).
