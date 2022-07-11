@@ -63,7 +63,6 @@ public class CicloDigrafo(val g: GrafoDirigido) {
         sTemp.push(s.pop())
 
         while(sTemp.peek() != this.raizCiclo) sTemp.push(s.pop())
-       
         while(!sTemp.isEmpty()) ciclo.add(sTemp.pop())
         
         ciclo.add(this.raizCiclo!!)

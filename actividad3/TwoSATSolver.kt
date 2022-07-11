@@ -4,7 +4,7 @@ import kotlin.system.exitProcess
 /**
  * El enfoque para la solución de esta actividad corresponde al algoritmo de Aspvall, 
  * Plass y Tarjan (1979) el cual en tiempo lineal resuelve instancias de 2SAT satisfacibles. 
- * El algoritmo esta basado en componentes fuertemente conectados. Por lo que los pasos que
+ * El algoritmo esta basado en componentes fuertemente conectados. Por lo que, los pasos que
  * se realizan en la solución de las instancias 2SAT son los siguientes:
 
  * (a) Se contruye un grafo dirigido denominado grafo de implicación en donde hay un vértice
@@ -13,9 +13,9 @@ import kotlin.system.exitProcess
  * normal implicativa.
  * En detalle, para la construcción del grafo se tiene que:
  *      - Se procesa el archivo de entrada, de modo que por cada clásula de la expresión 
- *      se crea una objeto Pair de enteros que posteriomente se agrega a una LinkedList.
+ *      se crea un estructura Pair de enteros que posteriomente se agrega a una LinkedList.
  *      Para el mapeo del literal xi de la enesima cláusula contenida en el archivo a un 
- *      entero, se implemento una funcion que dado el literal suma o resta uno a xi.toInt().
+ *      entero, se implemento una función que dado el literal suma o resta uno a xi.toInt().
  *      Es decir, si xi.toInt() es mayor o igual que cero se suma 1. Si no se resta 1. 
  *      Y si x == "-0" se retorna -1.
  *
@@ -67,7 +67,7 @@ import kotlin.system.exitProcess
  *
  * (d) Se construye el grafo componente asociado a las componentes fuertementes conexas calculadas en el paso (b).
  *
- * (e) Se aplica un ordenamiento topologico al grafo componente.
+ * (e) Se aplica un ordenamiento topologico al grafo componente, bajo la relación de orden parcial <.
  *
  * (d) Se establecen como falso todas las asignaciones de los literales del grafo y se recorre el orden topologico
  * hasta encontrar el literal xi o ¬xi, las asignaciones se hacen de la siguiente manera:
@@ -163,5 +163,4 @@ fun main(args: Array<String>) {
     } else {
         println("No hay asignación válida.")
     }
-    
 }
