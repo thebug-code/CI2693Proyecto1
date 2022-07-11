@@ -9,7 +9,7 @@ import kotlin.system.exitProcess
  * antes de visitar a los que están a distancia k+1, por lo que en efecto
  * el camino obtenido desde ente1 a ente2 es el más corto y la distancia
  * la menor. Para verificar si el grafo es bipartido se implemento un 
- * algoritmo basado en DFS que colorea cada vértice perteneciente al mismo
+ * algoritmo basado en DFS que "colorea" cada vértice perteneciente al mismo
  * grupo de partición de un mismo color, por lo que si, cuando se colorea un
  * vértice, existe un borde que lo conecta con un vértice previamente coloreado
  * con el mismo color, entonces se sabe que el grafo no es dos coloreable
@@ -33,19 +33,28 @@ import kotlin.system.exitProcess
  * Por último, las estructuras de apoyo usadas para la solución de la actividad son:
  *
  * - Clase VerticeBFS con paŕametros:
- *   • v que representa el valor del vértice.
+ *   • v representa el valor del vértice.
  *   • d distancia desde el enésimo vértice al vértice de inicio.
  *   • Color color de enésimo vértice (GRIS, BLANCO, NEGRO).
  *   • pred vértice predecesor del enésimo vértice.
  * 
  * - Clase VerticeDosColoreable: 
- *   • v que representa el valor del vértice.
+ *   • v representa el valor del vértice.
  *   • Color color del enésimo vértice (GRIS, BLANCO, NEGRO).
  *   • kclor kcolor del enésimo vértice (1 ó 2)
  *
  * Lo enterior se decidio implementar, con el proposito de no tener un arreglo por 
  * cada propiedad de los vértices en los casos respectivos. Además, de que es más 
  * sencillo de inicializar y facilita el acceso a las propiedades.
+ *
+ * - Clase DosColoreable, que recibe como parámetro de entrada un GrafoNoDirigido. 
+ * En la creación de un objeto de este tipo se ejecuta un algoritmo basado en DFS, 
+ * que determina si un grafo es dos coloreable. Además, se crean dos objetos adi-
+ * cionales:
+ *   • Procedimiento esBipartido(), que indica si el grafo de entrada es dos colo-
+ *      reable.
+ *   • Procedimiento obtenerKcolor(v: Int), que retorna el kcolor (1 ó 2) del vértice
+ *      de entrada [v], obtenido luego de la ejecución del algorimo.
 */
 
 /**
@@ -121,12 +130,14 @@ fun main(args: Array<String>) {
         println("El grado de separación es cero.")
         return
     }
-
+    
+    // Obtener camino
     r.caminoHasta(ente2).forEach {
         if (it != ente2) print("${tabla.nombreVertice(it)} - ")
     }
     println(tabla.nombreVertice(ente2))
-
+    
+    // Mostrar distancia
     if (!ind) {
         println("${r.obtenerDistancia(ente2)}")
     } else { 
