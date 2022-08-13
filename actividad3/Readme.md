@@ -4,19 +4,21 @@
  
 En detalle, para la construcción del grafo se tiene que:
 
-- Se procesa el archivo de entrada, de modo que por cada clásula de la expresión se crea un estructura `Pair` de enteros que posteriomente se agrega a una `LinkedList`. Para el mapeo del literal xi de la enésima cláusula contenida en el archivo a un entero, se implemento una función que dado el literal suma o resta uno a `xi.toInt()`. Es decir, si `xi.toInt()` es mayor o igual que cero se suma 1. Si no se resta 1. Y si `x == "-0"` se retorna -1.
+Se procesa el archivo de entrada, de modo que por cada clásula de la expresión se crea un estructura `Pair` de enteros que posteriomente se agrega a una `LinkedList`. Para el mapeo del literal $x_i$ de la enésima cláusula contenida en el archivo a un entero, se implemento una función que dado el literal suma o resta uno a `xi.toInt()`. Es decir, si `xi.toInt()` es mayor o igual que cero se suma 1. Si no se resta 1. Y si `x == "-0"` se retorna -1.
 
- Con lo anterior se tiene que, el intervalo $[1, nLit]$ corresponde a variables no complentadas y el intervalo $[-nLit, -1]$ corresponde a variables complementadas, $nLit$ representa el número de literales de la expresión, la cuál se determina en este mismo proceso.
+Con lo anterior se tiene que, el intervalo $[1, nLit]$ corresponde a variables no complentadas y el intervalo $[-nLit, -1]$ corresponde a variables complementadas, $nLit$ representa el número de literales de la expresión, la cuál se determina en este mismo proceso.
  
-Posteriormente se procede a agregar los arcos al grafo. Dado lo recién descrito se tiene que la variable x es mapeada a x - 1 y la variable -x es mapeada a $nLit + x$ (si es positivo) o $nLit -(-x)$ (si es negativo). Veamos un ejemplo:
+Posteriormente se procede a agregar los arcos al grafo. Dado lo recién descrito se tiene que la variable $x$ es mapeada a $x - 1$ y la variable $-x$ es mapeada a $nLit + x$ (si es positivo) o $nLit -(-x)$ (si es negativo). Veamos un ejemplo:
 
 Instancia contenida en el arhivo de entrada:
+
  0 -1 <br>
  -0 1 <br>
  -0 -1 <br>
  0 -2 <br>
  
 Se procesa el archivo y se obtiene la siguiente LinkedList de pares:
+
  (1, -2) -> (-1, 2) -> (-1, -2) -> (1, -3)
  
 Dónde:
@@ -28,11 +30,12 @@ Dónde:
  -3 (int) es el literal -2 (formato de archivo). <br>
 
 Se agregan los arcos al grafo obteniendo 
- |0| -> [1] -> [4]  <br>
- |1| -> [0] -> [3]  <br>
- |2| -> [0] <br>
+
+ |0| -> [1] -> [4] <br>
+ |1| -> [0] -> [3] <br>
+ |2| -> [0]        <br>
  |3| -> [4] -> [5] <br>
- |4| -> [3] <br>
+ |4| -> [3]        <br>
  |5|
  
 Dónde:
@@ -46,8 +49,8 @@ Dónde:
 4. Se construye el grafo componente asociado a las componentes fuertementes conexas calculadas en el paso 2.
 5. Se aplica un ordenamiento topologico al grafo componente, bajo la relación de orden parcial $<$.
 6. Se establecen como falso todas las asignaciones de los literales del grafo y se recorre el orden topologico hasta encontrar el literal $x_i$ o $\neg x_i$, las asignaciones se hacen de la siguiente manera:
- - Si se encuentra primero $ \neg x_i$, se tiene que $C(\neg x_i) < C(x_i) \implies x_i = true$
- - Si se encuentra primero xi, se tiene que $C(x_i) < C(\neg x_i) \implies x_i = false$
+ - Si se encuentra primero $\neg x_i$, se tiene que $C(\neg x_i) < C(x_i) \implies x_i = true$
+ - Si se encuentra primero $x_i$, se tiene que $C(x_i) < C(\neg x_i) \implies x_i = false$
   
  Dónde:
  
