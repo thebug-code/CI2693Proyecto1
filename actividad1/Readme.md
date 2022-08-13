@@ -4,13 +4,13 @@ El enfoque para la solución de esta actividad es bastante sencillo. En primer l
  
 Por último, las estructuras de apoyo usadas para la solución de la actividad son:
 
-- Clase VerticeBFS con parámetros:
+- Clase `VerticeBFS` con parámetros:
   - $v$ representa el valor del vértice.
   - $d$ distancia desde el enésimo vértice al vértice de inicio.
   - $Color$ color de enésimo vértice (GRIS, BLANCO, NEGRO).
   - $pred$ vértice predecesor del enésimo vértice.
  
-- Clase VerticeDosColoreable: 
+- Clase `VerticeDosColoreable`: 
   - $v$ representa el valor del vértice.
   - $Color$ color del enésimo vértice (GRIS, BLANCO, NEGRO).
   - $kclor$ kcolor del enésimo vértice (1 ó 2)
