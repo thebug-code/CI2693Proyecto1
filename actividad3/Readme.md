@@ -1,0 +1,1 @@
+ El enfoque para la solución de esta actividad corresponde al algoritmo de Aspvall, Plass y Tarjan (1979) el cual en tiempo lineal resuelve instancias de 2SAT satisfacibles. El algoritmo esta basado en componentes fuertemente conectados. Por lo que, los pasos que se realizan en la solución de las instancias 2SAT son los siguientes:
