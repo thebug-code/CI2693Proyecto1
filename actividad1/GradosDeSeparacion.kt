@@ -3,7 +3,7 @@ import kotlin.system.exitProcess
 
 /**
 * Muestra en pantalla el mensaje [mensaje] que indica que a ocurrido un
-* error en la ejecución del programa y terminar la ejecución del mismo.
+* error en la ejecución del programa y termina la ejecución del mismo.
 */
 fun error(mensaje: String) {
     println(mensaje)
